@@ -200,7 +200,7 @@ public class SearchPRViewer extends AbstractVisualResource
       switch(columnIndex){
         case DOC_NAME_COLUMN: return guessDocName(aResult.getDocumentID()).
                                      toString();
-        case DOC_SCORE_COLUMN: return new Float(aResult.getScore());
+        case DOC_SCORE_COLUMN: return Float.valueOf(aResult.getScore());
         default: return null;
       }
     }

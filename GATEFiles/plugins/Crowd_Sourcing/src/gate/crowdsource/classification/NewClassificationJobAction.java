@@ -24,7 +24,9 @@ import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.AbstractButton;
@@ -167,13 +169,17 @@ public class NewClassificationJobAction extends AbstractAction {
                       MainFrame.lockGUI("Creating CrowdFlower job");
                       try {
                         @SuppressWarnings("unchecked")
-                        List<List<String>> commonOptions = optionsTableModel.getDataVector();
+                        Vector<Vector> commonOptions = optionsTableModel.getDataVector();
+                        List<List<String>> commonOptionsList = new ArrayList<>();
+                        for (Vector commonOption : commonOptions) {
+                          commonOptionsList.add(commonOption.stream().toList());
+                        }
                         
                         jobBuilder.setJobId(jobBuilder.crowdFlowerClient.createClassificationJob(
                                 panel.getTextField("title").getText().trim(),
                                 panel.getTextComponent("instructions").getText(),
                                 panel.getTextField("caption").getText().trim(),
-                                commonOptions));
+                                commonOptionsList));
                         // if the creation was successful we can dispose the dialog
                         SwingUtilities.invokeLater(new Runnable() {
                           public void run() {

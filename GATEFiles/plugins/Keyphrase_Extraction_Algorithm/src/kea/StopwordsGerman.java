@@ -43,7 +43,7 @@ public class StopwordsGerman extends Stopwords {
    
     if (m_Stopwords == null) {
       m_Stopwords = new Hashtable();
-      Double dummy = new Double(0);
+      Double dummy = (double) 0;
 
       m_Stopwords.put("aber", dummy);
 

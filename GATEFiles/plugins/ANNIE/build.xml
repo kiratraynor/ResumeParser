@@ -68,7 +68,7 @@
         -distro: make a GATE distribution (calls all build tasks in the process)
     </echo>
   </target>
-  
+
 
 	<!-- This target compiles all the classes -->  
   <target name="compile"
@@ -77,8 +77,8 @@
     <javac srcdir="${srcDir}" 
 		       destdir="${outputDir}"
            includes="gate/**"
-           source="1.4"
-           target="1.4"
+           source="17"
+           target="17"
 					 classpathref="build.class.path"/>
   </target>
 	
@@ -116,7 +116,7 @@
               link="http://docs.oracle.com/javase/6/docs/api/"
               docencoding="UTF-8"
               charset="UTF-8"
-              source="1.6"
+              source="17"
               breakiterator="true">
       <fileset dir="${srcDir}"/>        
     </javadoc>

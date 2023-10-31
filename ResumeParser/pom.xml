@@ -7,15 +7,36 @@
     <groupId>gb.resumeparse</groupId>
     <artifactId>resume-parser</artifactId>
     <version>1.0.0</version>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
     <packaging>jar</packaging>
     <name>ResumeParser</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <argLine>
+                        --add-opens java.base/java.util=ALL-UNNAMED
+                        --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+                        --add-opens java.base/java.text=ALL-UNNAMED
+                        --add-opens java.desktop/java.awt.font=ALL-UNNAMED
+                    </argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/uk.ac.gate/gate-core -->
         <dependency>
             <groupId>uk.ac.gate</groupId>
             <artifactId>gate-core</artifactId>
-            <version>8.4.1</version>
+            <version>9.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.tika/tika -->
         <dependency>

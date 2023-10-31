@@ -441,11 +441,11 @@ public class KEAModelBuilder implements OptionHandler {
     }
     String stopwordsString = Utils.getOption('s', options);
     if (stopwordsString.length() > 0) {
-      setStopwords((Stopwords)Class.forName(stopwordsString).newInstance());
+      setStopwords((Stopwords)Class.forName(stopwordsString).getDeclaredConstructor().newInstance());
     }
     String stemmerString = Utils.getOption('t', options);
     if (stemmerString.length() > 0) {
-      setStemmer((Stemmer)Class.forName(stemmerString).newInstance());
+      setStemmer((Stemmer)Class.forName(stemmerString).getDeclaredConstructor().newInstance());
     }
     setDebug(Utils.getFlag('d', options));
     setUseKFrequency(Utils.getFlag('k', options));
@@ -563,7 +563,7 @@ public class KEAModelBuilder implements OptionHandler {
 	    files[i].endsWith(".txt")) {
 	  String stem = files[i].substring(0, files[i].length() - 4);
 	  if (!stems.containsKey(stem)) {
-	    stems.put(stem, new Double(0));
+	    stems.put(stem, (double) 0);
 	  }
 	}
       }

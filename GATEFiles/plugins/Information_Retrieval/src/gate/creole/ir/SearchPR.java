@@ -134,7 +134,7 @@ public class SearchPR extends AbstractProcessingResource
     try {
       // load searcher class through GATE classloader
       searcher = (Search)
-        Class.forName(searcherClassName, true, Gate.getClassLoader())
+        Class.forName(searcherClassName, true, Gate.getClassLoader()).getDeclaredConstructor()
         .newInstance();
     }
     catch(Exception e){
@@ -152,7 +152,7 @@ public class SearchPR extends AbstractProcessingResource
   }
 
   public Integer getLimit(){
-    return new Integer(this.limit);
+    return Integer.valueOf(this.limit);
   }
 
   public void setFieldNames(List<String> fieldNames){

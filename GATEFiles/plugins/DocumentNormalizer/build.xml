@@ -29,7 +29,7 @@
 
 	<!-- compile the source -->
 	<target name="compile" depends="prepare">
-		<javac classpathref="compile.classpath" srcdir="${src.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" encoding="UTF-8" source="1.6" target="1.6">
+		<javac classpathref="compile.classpath" srcdir="${src.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" encoding="UTF-8" source="17" target="17">
 			<compilerarg value="-Xmaxwarns" />
 			<compilerarg value="${gate.compile.maxwarnings}" />
 			<compilerarg value="-Xlint:all" />
@@ -70,11 +70,11 @@
 	</target>
 
 	<target name="javadoc" depends="doc.prepare">
-		<javadoc destdir="${javadoc.dir}" packagenames="*" classpathref="compile.classpath" encoding="UTF-8" windowtitle="Annotations As HTML Microdata JavaDoc" source="1.5">
+		<javadoc destdir="${javadoc.dir}" packagenames="*" classpathref="compile.classpath" encoding="UTF-8" windowtitle="Annotations As HTML Microdata JavaDoc" source="17">
 			<sourcepath>
 				<pathelement location="${src.dir}" />
 			</sourcepath>
-			<link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+			<link href="http://java.sun.com/j2se/17/docs/api/" />
 			<link href="http://gate.ac.uk/gate/doc/javadoc/" />
 		</javadoc>
 	</target>

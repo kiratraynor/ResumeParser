@@ -235,7 +235,7 @@ public class Kea extends AbstractLanguageAnalyser implements ActionsPublisher{
       int start = matcher.start();
       int end = matcher.end();
       //add the new annotation
-      outputSet.add(new Long(start), new Long(end), keyphraseAnnotationType,
+      outputSet.add((long) start, (long) end, keyphraseAnnotationType,
                     Factory.newFeatureMap());
     }
     document.getFeatures().put("KEA matched keyphrases", phrases);

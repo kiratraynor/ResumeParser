@@ -340,7 +340,7 @@ public class KEAKeyphraseExtractor implements OptionHandler {
 	if (files[i].endsWith(".txt")) {
 	  String stem = files[i].substring(0, files[i].length() - 4);
 	  if (!stems.containsKey(stem)) {
-	    stems.put(stem, new Double(0));
+	    stems.put(stem, (double) 0);
 	  }
 	}
       }
@@ -478,7 +478,7 @@ public class KEAKeyphraseExtractor implements OptionHandler {
 	if (m_debug) {
 	  System.err.println("-- " + numCorrect + " correct");
 	}
-	stats.addElement(new Double(numCorrect));
+	stats.addElement(numCorrect);
       }
       if (printer != null) {
 	printer.flush();

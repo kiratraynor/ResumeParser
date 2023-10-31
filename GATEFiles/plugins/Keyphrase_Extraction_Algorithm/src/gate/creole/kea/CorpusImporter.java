@@ -417,7 +417,7 @@ public class CorpusImporter extends AbstractVisualResource {
     while(matcher.find()){
       int start = matcher.start();
       int end = matcher.end();
-      outputSet.add(new Long(start), new Long(end), keyphraseAnnotationType,
+      outputSet.add((long) start, (long) end, keyphraseAnnotationType,
                     Factory.newFeatureMap());
       result = true;
     }
